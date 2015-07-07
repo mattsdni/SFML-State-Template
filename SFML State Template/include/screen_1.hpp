@@ -10,6 +10,7 @@ private:
 	float posx;
 	float posy;
 	sf::RectangleShape Rectangle;
+	sf::Clock clock;
 public:
 	screen_1(void);
 	virtual int Run(sf::RenderWindow &App);
@@ -32,6 +33,10 @@ int screen_1::Run(sf::RenderWindow &App)
 
 	while (Running)
 	{
+		//get the elapsed time between frames
+		sf::Time elapsed = clock.restart();
+		std::cout << elapsed.asMilliseconds() << std::endl;
+
 		//Verifying events
 		while (App.pollEvent(Event))
 		{
